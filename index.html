@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Transaction Anomaly Flagger | Home</title>
+  <meta name="description" content="An intelligent first-pass transaction screening system that combines logical rules, transaction relationships, and statistical anomaly detection.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet & AI Agent Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ai-agent.css">
+</head>
+<body>
+
+  <!-- Background Glow & Grid Decoration -->
+  <div class="bg-decoration">
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-grid-pattern"></div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container" aria-label="Main Navigation">
+      <a href="index.html" class="brand-logo" id="nav-brand">
+        <div class="logo-icon-wrap">
+          <svg class="shield-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Bank Anomaly Flagger</span>
+          <span class="brand-badge">B.Tech Project</span>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="check-transaction.html" class="nav-link">Check Transaction</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="check-transaction.html" class="btn btn-primary nav-btn" id="nav-check-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Check Transaction</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <!-- Hero Left Content -->
+        <div class="hero-content">
+          <div class="pill-badge animate-fade-in">
+            <span class="pulsing-dot"></span>
+            <span class="badge-text">Intelligent FinTech Security & Anomaly Detection</span>
+          </div>
+
+          <h1 class="hero-title animate-fade-in-delay-1">
+            Detect Unusual Bank Transactions <span class="gradient-text">Before They Become a Risk</span>
+          </h1>
+
+          <p class="hero-subtitle animate-fade-in-delay-2">
+            An intelligent first-pass transaction screening system that combines logical rules, transaction relationships, and statistical anomaly detection to identify transactions that require further review.
+          </p>
+
+          <div class="hero-cta-group animate-fade-in-delay-3">
+            <a href="check-transaction.html" class="btn btn-primary btn-lg" id="hero-primary-btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+              <span>Check Transaction</span>
+            </a>
+            <a href="dashboard.html" class="btn btn-secondary btn-lg" id="hero-secondary-btn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="7" height="9"></rect>
+                <rect x="14" y="3" width="7" height="5"></rect>
+                <rect x="14" y="12" width="7" height="9"></rect>
+                <rect x="3" y="16" width="7" height="5"></rect>
+              </svg>
+              <span>Explore Dashboard</span>
+            </a>
+            <button class="btn btn-secondary btn-lg" id="hero-ai-btn" onclick="document.getElementById('sentinel-fab')?.click()">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+              <span>Ask Sentinel AI Copilot</span>
+            </button>
+          </div>
+
+          <!-- Quick Spec Tags -->
+          <div class="hero-tech-pills animate-fade-in-delay-4">
+            <span class="tech-pill">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              DMGT Logic
+            </span>
+            <span class="tech-pill">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+              ADSA Graph Networks
+            </span>
+            <span class="tech-pill">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              Python Z-Score
+            </span>
+            <span class="tech-pill">
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+              Java OOP Architecture
+            </span>
+          </div>
+        </div>
+
+        <!-- Hero Right Visual Illustration -->
+        <div class="hero-visual-wrapper animate-fade-in-delay-2">
+          <div class="hero-illustration-card">
+            <!-- Central Security Shield Node -->
+            <div class="security-radar-core">
+              <div class="radar-pulse-ring ring-1"></div>
+              <div class="radar-pulse-ring ring-2"></div>
+              <div class="radar-core-shield">
+                <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="currentColor" stroke-width="1.8">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <path d="M12 8v5M12 16h.01" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+                <span class="radar-label">REAL-TIME INSPECTOR</span>
+              </div>
+            </div>
+
+            <!-- Transaction Flow Lines -->
+            <div class="flow-network-lines">
+              <svg class="network-svg" viewBox="0 0 400 320" fill="none">
+                <path class="flow-line line-normal" d="M 60 70 Q 150 50 200 130" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4 4"/>
+                <path class="flow-line line-warning" d="M 340 70 Q 250 80 200 130" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6 4"/>
+                <path class="flow-line line-safe" d="M 200 170 Q 200 230 200 270" stroke="#10b981" stroke-width="2"/>
+                <circle cx="200" cy="130" r="4" fill="#3b82f6" class="particle particle-1" />
+              </svg>
+            </div>
+
+            <!-- Floating Card 1: Safe Account Transfer -->
+            <div class="floating-item float-card-safe">
+              <div class="card-status-dot status-safe"></div>
+              <div class="float-icon-box safe-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
+              <div class="float-details">
+                <div class="float-title">Verified Transfer</div>
+                <div class="float-code">TXN-0891 • ACC-1001 → ACC-3304</div>
+                <div class="float-amount text-safe">₹1,250.00 <span class="badge-tag-safe">Normal</span></div>
+              </div>
+            </div>
+
+            <!-- Floating Card 2: Highlighted Flagged Transaction -->
+            <div class="floating-item float-card-flagged">
+              <div class="card-status-dot status-warning"></div>
+              <div class="float-icon-box warning-icon">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <div class="float-details">
+                <div class="float-title warning-text">Unusual Transaction Flagged</div>
+                <div class="float-code">TXN-1024 • ACC-1001 → New Payee</div>
+                <div class="float-amount text-danger">₹75,000.00 <span class="badge-tag-flag">⚠ FLAGGED</span></div>
+                <div class="flag-tags">
+                  <span class="micro-tag">Z-Score: +3.42σ</span>
+                  <span class="micro-tag">Logic: Flag</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating Micro Node: Core Bank Node -->
+            <div class="floating-item float-bank-node">
+              <div class="bank-node-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="3" y1="21" x2="21" y2="21"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                  <polyline points="5 10 5 21"/>
+                  <polyline points="19 10 19 21"/>
+                  <path d="M4 10l8-6 8 6"/>
+                </svg>
+              </div>
+              <div class="bank-node-text">
+                <strong>Core Bank Node</strong>
+                <span>Multi-account routing</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT HIGHLIGHTS SECTION -->
+    <section class="highlights-section" id="highlights">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-pill">Project Highlights</div>
+          <h2 class="section-title">Multi-Layered Anomaly Screening Architecture</h2>
+          <p class="section-subtitle">
+            A hybrid academic framework combining discrete mathematical logic, graph structures, and statistical anomaly detection.
+          </p>
+        </div>
+
+        <div class="highlights-grid">
+          <!-- Card 1 -->
+          <div class="highlight-card">
+            <div class="card-icon-wrapper icon-blue">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <path d="M9 15l2 2 4-4"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <span class="card-category">DMGT Propositional Logic</span>
+              <h3 class="card-title">Rule-Based Analysis</h3>
+              <p class="card-text">
+                Uses logical transaction rules to identify unusual activity.
+              </p>
+            </div>
+            <div class="card-footer-metric">
+              <span class="metric-label">Precision Logic</span>
+              <span class="metric-val">Deterministic</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="highlight-card">
+            <div class="card-icon-wrapper icon-indigo">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 3v18h18"></path>
+                <path d="M18 17V9"></path>
+                <path d="M13 17V5"></path>
+                <path d="M8 17v-3"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <span class="card-category">Python Statistical Core</span>
+              <h3 class="card-title">Statistical Detection</h3>
+              <p class="card-text">
+                Uses transaction history and statistical analysis to identify outliers.
+              </p>
+            </div>
+            <div class="card-footer-metric">
+              <span class="metric-label">Algorithm</span>
+              <span class="metric-val">Z-Score & Variance</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="highlight-card">
+            <div class="card-icon-wrapper icon-cyan">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+              </svg>
+            </div>
+            <div class="card-content">
+              <span class="card-category">ADSA Graph Algorithms</span>
+              <h3 class="card-title">Transaction Network</h3>
+              <p class="card-text">
+                Represents account relationships using graph-based analysis.
+              </p>
+            </div>
+            <div class="card-footer-metric">
+              <span class="metric-label">Topology</span>
+              <span class="metric-val">Node-Edge Mapping</span>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="highlight-card">
+            <div class="card-icon-wrapper icon-amber">
+              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+              </svg>
+            </div>
+            <div class="card-content">
+              <span class="card-category">Risk Triage & Audit</span>
+              <h3 class="card-title">Review Alerts</h3>
+              <p class="card-text">
+                Flags unusual transactions for further manual review.
+              </p>
+            </div>
+            <div class="card-footer-metric">
+              <span class="metric-label">Outcome</span>
+              <span class="metric-val">Instant Escalation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHORT HOW IT WORKS PREVIEW -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="section-pill">Step-by-Step Pipeline</div>
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">
+            A 4-step workflow that ingests transaction parameters, validates logic and relations, calculates statistical variance, and outputs decision flags.
+          </p>
+        </div>
+
+        <div class="process-steps-wrapper">
+          <div class="steps-progress-bar">
+            <div class="progress-line"></div>
+          </div>
+
+          <div class="process-steps-grid">
+            <!-- Step 01 -->
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">01</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="step-title">Transaction</h3>
+              <p class="step-text">
+                Transaction information is submitted for analysis.
+              </p>
+              <div class="step-badge">Data Ingestion</div>
+            </div>
+
+            <!-- Step 02 -->
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">02</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="step-title">Rule & Pattern Checks</h3>
+              <p class="step-text">
+                Logical rules and transaction relationships are examined.
+              </p>
+              <div class="step-badge">DMGT & Graph Checks</div>
+            </div>
+
+            <!-- Step 03 -->
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">03</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                    <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="step-title">Statistical Analysis</h3>
+              <p class="step-text">
+                Historical transaction data is analyzed for unusual values.
+              </p>
+              <div class="step-badge">Z-Score Distribution</div>
+            </div>
+
+            <!-- Step 04 -->
+            <div class="step-card">
+              <div class="step-header">
+                <span class="step-number">04</span>
+                <div class="step-icon">
+                  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 class="step-title">Flag for Review</h3>
+              <p class="step-text">
+                The system displays whether the transaction is normal or requires review.
+              </p>
+              <div class="step-badge step-badge-alert">Alert Generation</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 40px;">
+          <a href="about.html" class="btn btn-secondary">
+            <span>Learn More in Project Details</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+        <!-- SENTINEL AI COPILOT SHOWCASE -->
+        <div class="ai-showcase-card" style="margin-top: 48px;">
+          <div class="ai-showcase-left">
+            <div class="ai-showcase-pill">
+              <span class="pulsing-dot"></span>
+              <span>New AI Copilot Integration</span>
+            </div>
+            <h3 class="ai-showcase-title">Meet Sentinel AI — Your Real-Time FinTech Security Copilot</h3>
+            <p class="ai-showcase-desc">
+              Ask questions in plain English, audit custom transaction amounts, simulate velocity burst attacks, and evaluate discrete logic formulas & statistical Z-scores directly in browser.
+            </p>
+          </div>
+          <button class="ai-showcase-btn" onclick="document.getElementById('sentinel-fab')?.click()">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <span>Launch Sentinel AI</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CALL-TO-ACTION -->
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-content">
+            <h2 class="cta-title">Ready to Analyze a Transaction?</h2>
+            <p class="cta-text">
+              Explore the transaction screening workflow and identify unusual activity.
+            </p>
+            <div class="cta-buttons">
+              <a href="check-transaction.html" class="btn btn-primary btn-lg" id="cta-check-btn">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+                <span>Check Transaction</span>
+              </a>
+            </div>
+          </div>
+          <div class="cta-decoration-bg"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <span class="footer-brand-title">Bank Transaction Anomaly Flagger</span>
+          </div>
+          <p class="footer-desc">
+            An intelligent first-pass transaction screening system combining discrete mathematical logic, graph network analysis, and statistical anomaly detection.
+          </p>
+          <div class="footer-badge-project">
+            <span>Academic Project | B.Tech</span>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="check-transaction.html">Check Transaction</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-info-group">
+          <h4 class="footer-heading">Academic Pillars</h4>
+          <ul class="footer-links">
+            <li><span class="footer-subitem">1. DMGT Propositional Rules</span></li>
+            <li><span class="footer-subitem">2. Python Z-Score Detection</span></li>
+            <li><span class="footer-subitem">3. ADSA Graph Relational Map</span></li>
+            <li><span class="footer-subitem">4. Java OOP Domain Engine</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; 2026 Bank Transaction Anomaly Flagger
+        </p>
+        <div class="footer-academic-meta">
+          <span>College B.Tech Project • Multi-Page Frontend</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="rules-engine.js"></script>
+  <script src="script.js"></script>
+  <script src="ai-agent.js"></script>
+</body>
+</html>

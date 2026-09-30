@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Transaction Anomaly Flagger | About Project</title>
+  <meta name="description" content="Academic project overview, problem statement, objectives, subject integration, and architectural scope.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet & AI Agent Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ai-agent.css">
+</head>
+<body>
+
+  <!-- Background Glow & Grid Decoration -->
+  <div class="bg-decoration">
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-grid-pattern"></div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container" aria-label="Main Navigation">
+      <a href="index.html" class="brand-logo" id="nav-brand">
+        <div class="logo-icon-wrap">
+          <svg class="shield-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Bank Anomaly Flagger</span>
+          <span class="brand-badge">B.Tech Project</span>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="check-transaction.html" class="nav-link">Check Transaction</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="about.html" class="nav-link active">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="check-transaction.html" class="btn btn-primary nav-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Check Transaction</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-header-section">
+      <div class="container">
+        <div class="section-pill">Academic Documentation</div>
+        <h1 class="page-title">About the Project</h1>
+        <p class="page-subtitle">
+          Comprehensive project report detailing system architecture, academic subjects applied, engineering methodology, and project boundaries.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-content-section">
+      <div class="container">
+        <div class="about-layout-grid">
+          
+          <!-- Section 1: Project Overview -->
+          <div class="card about-card" id="overview">
+            <div class="about-card-icon icon-blue">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">Project Overview</h2>
+            <p class="about-text">
+              The <strong>Bank Transaction Anomaly Flagger</strong> is an intelligent, multi-layered financial transaction screening system engineered as a B.Tech computer science capstone project. 
+            </p>
+            <p class="about-text">
+              Modern banking ecosystems handle millions of transactions every second. While the vast majority are legitimate, fraudulent actors frequently attempt illicit transfers, account takeovers, and money laundering. Rather than relying on a single detection technique, this project brings together discrete logic, graph theory, object-oriented software engineering, and statistical anomaly mathematics to flag unusual transactions for human compliance review.
+            </p>
+          </div>
+
+          <!-- Section 2: Problem Statement -->
+          <div class="card about-card" id="problem-statement">
+            <div class="about-card-icon icon-red">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="7.86 2 16.14 2 22 7.86 22 16.14 16.14 22 7.86 22 2 16.14 2 7.86 7.86 2"></polygon>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">Problem Statement</h2>
+            <p class="about-text">
+              Traditional rule-based screening systems often suffer from high false positive rates and struggle to detect subtle patterns such as sudden deviation from a customer's spending history or multi-hop money routing through newly created beneficiary accounts.
+            </p>
+            <p class="about-text">
+              Conversely, pure black-box machine learning approaches often lack explainability, making it difficult for bank compliance auditors to understand why a transaction was flagged. There is a critical need for an explainable, multi-tiered screening solution that combines deterministic rule validation, structural relationship mapping, and statistical variance scoring.
+            </p>
+          </div>
+
+          <!-- Section 3: Objectives -->
+          <div class="card about-card" id="objectives">
+            <div class="about-card-icon icon-green">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">Project Objectives</h2>
+            <ul class="about-bullet-list">
+              <li><strong>Early-Stage Anomaly Detection:</strong> Identify suspicious transactions before funds are settled or cleared.</li>
+              <li><strong>Multi-Factor Verification:</strong> Combine deterministic propositional logic with historical statistical baselines.</li>
+              <li><strong>Graph-Based Topology Analysis:</strong> Analyze account-to-payee relationships to detect unfamiliar nodes and circular transfers.</li>
+              <li><strong>Transparent Audit Trails:</strong> Provide clear, explainable decision factors for every flagged transaction.</li>
+              <li><strong>Zero External Storage Overhead:</strong> Maintain a lightweight, modular computational architecture.</li>
+            </ul>
+          </div>
+
+          <!-- Section 4: How the System Works -->
+          <div class="card about-card" id="how-it-works-detail">
+            <div class="about-card-icon icon-cyan">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">How the System Works</h2>
+            <div class="system-workflow-steps">
+              <div class="wf-step">
+                <span class="wf-num">1</span>
+                <div>
+                  <strong>Input Ingestion:</strong>
+                  <p>Transaction attributes (Account, Amount, Payee, Location, History) are structured into memory objects.</p>
+                </div>
+              </div>
+              <div class="wf-step">
+                <span class="wf-num">2</span>
+                <div>
+                  <strong>Propositional Rule Validation:</strong>
+                  <p>The system evaluates truth conditions against safety rules (e.g. <code>Amount &gt; Threshold ∧ NewPayee = True</code>).</p>
+                </div>
+              </div>
+              <div class="wf-step">
+                <span class="wf-num">3</span>
+                <div>
+                  <strong>Statistical Outlier Calculation:</strong>
+                  <p>Calculates the customer's mean ($\mu$) and standard deviation ($\sigma$). If $Z = \frac{X - \mu}{\sigma} &gt; 2.5$, it triggers an anomaly score.</p>
+                </div>
+              </div>
+              <div class="wf-step">
+                <span class="wf-num">4</span>
+                <div>
+                  <strong>Relational Graph Inspection:</strong>
+                  <p>Maps source and destination accounts to check connection frequency and unverified hops.</p>
+                </div>
+              </div>
+              <div class="wf-step">
+                <span class="wf-num">5</span>
+                <div>
+                  <strong>Decision Output:</strong>
+                  <p>Combines scores into a final deterministic label: <code>NORMAL</code> or <code>FLAGGED FOR REVIEW</code>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 5: Subjects Used (CRUCIAL SECTION) -->
+          <div class="card about-card full-width-card" id="subjects">
+            <div class="about-card-icon icon-indigo">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">Academic Subjects Applied</h2>
+            <p class="about-text" style="margin-bottom: 24px;">
+              This project directly integrates five core computer science curriculum subjects into a unified engineering solution:
+            </p>
+
+            <div class="subjects-grid">
+              
+              <!-- Subject 1: DMGT -->
+              <div class="subject-box">
+                <div class="subject-tag tag-blue">DMGT</div>
+                <h3 class="subject-name">Discrete Mathematics &amp; Graph Theory</h3>
+                <p class="subject-desc">
+                  Utilizes <strong>propositional logic</strong> formulas, truth tables, and conditional implications to build deterministic decision trees for rule evaluations.
+                </p>
+              </div>
+
+              <!-- Subject 2: AI -->
+              <div class="subject-box">
+                <div class="subject-tag tag-purple">AI</div>
+                <h3 class="subject-name">Artificial Intelligence</h3>
+                <p class="subject-desc">
+                  Implements <strong>heuristic risk-scoring</strong>, multi-criteria decision models, and adaptive thresholding for triage automation.
+                </p>
+              </div>
+
+              <!-- Subject 3: ADSA -->
+              <div class="subject-box">
+                <div class="subject-tag tag-cyan">ADSA</div>
+                <h3 class="subject-name">Advanced Data Structures &amp; Algorithms</h3>
+                <p class="subject-desc">
+                  Applies <strong>graph data structures</strong> (adjacency lists, directed graphs, cycle detection) to inspect fund flows between accounts and identify money-mule clusters.
+                </p>
+              </div>
+
+              <!-- Subject 4: OOPJ / Java -->
+              <div class="subject-box">
+                <div class="subject-tag tag-amber">OOPJ / Java</div>
+                <h3 class="subject-name">Object-Oriented Programming (Java)</h3>
+                <p class="subject-desc">
+                  Implements structured domain modeling with <strong>encapsulation, abstraction, and polymorphism</strong> to handle transaction lifecycle and rule evaluation chains.
+                </p>
+              </div>
+
+              <!-- Subject 5: Python -->
+              <div class="subject-box">
+                <div class="subject-tag tag-green">Python</div>
+                <h3 class="subject-name">Python Statistical Core</h3>
+                <p class="subject-desc">
+                  Powers numerical analysis, calculating <strong>mean, variance, and Z-score metrics</strong> to detect statistical outliers in user transaction histories.
+                </p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Section 6: Technologies Used -->
+          <div class="card about-card" id="technologies">
+            <div class="about-card-icon icon-blue">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 18 22 12 16 6"></polyline>
+                <polyline points="8 6 2 12 8 18"></polyline>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">Technologies Used</h2>
+            <div class="tech-item-list">
+              <div class="tech-row">
+                <span class="tech-name">Java</span>
+                <span class="tech-detail">Core Transaction Processing &amp; Object-Oriented Architecture</span>
+              </div>
+              <div class="tech-row">
+                <span class="tech-name">Python</span>
+                <span class="tech-detail">Statistical Anomaly Detection &amp; Z-Score Computation</span>
+              </div>
+              <div class="tech-row">
+                <span class="tech-name">HTML5 / CSS3</span>
+                <span class="tech-detail">Semantic, Responsive User Interface with Custom CSS Tokens</span>
+              </div>
+              <div class="tech-row">
+                <span class="tech-name">Vanilla JavaScript</span>
+                <span class="tech-detail">Client-Side DOM Manipulation &amp; Interactive Event Handling</span>
+              </div>
+              <div class="tech-row">
+                <span class="tech-name">Sentinel AI Agent</span>
+                <span class="tech-detail">Autonomous Multi-Intent Reasoning Engine, DMGT Logic Solver, Voice STT/TTS &amp; Live Forensic Scanner</span>
+              </div>
+              <div class="tech-row">
+                <span class="tech-name">Graph Algorithms</span>
+                <span class="tech-detail">Node-Edge Relationship Traversal &amp; Adjacency Mapping</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section 7: Project Scope -->
+          <div class="card about-card" id="project-scope">
+            <div class="about-card-icon icon-amber">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="9" y1="3" x2="9" y2="21"></line>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">Project Scope</h2>
+            <ul class="about-bullet-list">
+              <li><strong>First-Pass Screening:</strong> Serves as an immediate pre-clearance filter before banking settlements.</li>
+              <li><strong>Academic Demonstration:</strong> Designed to validate discrete logic, graph structures, and statistical variance in financial security.</li>
+              <li><strong>Explainable Decisions:</strong> Every flagged output highlights the exact rule, graph node, or statistical score that was violated.</li>
+              <li><strong>Zero Database Footprint:</strong> In-memory and statistical computation suitable for lightweight college presentations.</li>
+            </ul>
+          </div>
+
+          <!-- Section 8: Future Scope -->
+          <div class="card about-card full-width-card" id="future-scope">
+            <div class="about-card-icon icon-green">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <h2 class="about-section-heading">Future Scope &amp; Enhancements</h2>
+            <div class="future-grid">
+              <div class="future-box">
+                <div class="future-tag">Phase 2</div>
+                <h4>Real-Time Stream Processing</h4>
+                <p>Integrate Apache Kafka or reactive streams for handling high-throughput payment queues with microsecond latencies.</p>
+              </div>
+              <div class="future-box">
+                <div class="future-tag">Phase 3</div>
+                <h4>Graph Neural Networks (GNN)</h4>
+                <p>Incorporate Graph Convolutional Networks (GCN) to automatically discover complex evolving money laundering rings.</p>
+              </div>
+              <div class="future-box">
+                <div class="future-tag">Phase 4</div>
+                <h4>Automated Dispute Resolution</h4>
+                <p>Deploy interactive two-factor verification workflows allowing legitimate customers to unblock false flags instantly.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Call to Action Banner inside About -->
+        <div class="about-cta-box">
+          <div>
+            <h3>Ready to test the screening workflow?</h3>
+            <p>Experience how the form parameters and detection layers interact.</p>
+          </div>
+          <a href="check-transaction.html" class="btn btn-primary btn-lg">
+            <span>Check a Transaction Now</span>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <span class="footer-brand-title">Bank Transaction Anomaly Flagger</span>
+          </div>
+          <p class="footer-desc">
+            An intelligent first-pass transaction screening system combining discrete mathematical logic, graph network analysis, and statistical anomaly detection.
+          </p>
+          <div class="footer-badge-project">
+            <span>Academic Project | B.Tech</span>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="check-transaction.html">Check Transaction</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-info-group">
+          <h4 class="footer-heading">Academic Pillars</h4>
+          <ul class="footer-links">
+            <li><span class="footer-subitem">1. DMGT Propositional Rules</span></li>
+            <li><span class="footer-subitem">2. Python Z-Score Detection</span></li>
+            <li><span class="footer-subitem">3. ADSA Graph Relational Map</span></li>
+            <li><span class="footer-subitem">4. Java OOP Domain Engine</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; 2026 Bank Transaction Anomaly Flagger
+        </p>
+        <div class="footer-academic-meta">
+          <span>College B.Tech Project • Multi-Page Frontend</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="rules-engine.js"></script>
+  <script src="script.js"></script>
+  <script src="ai-agent.js"></script>
+</body>
+</html>

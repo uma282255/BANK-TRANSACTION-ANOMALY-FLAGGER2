@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Transaction Anomaly Flagger | Dashboard</title>
+  <meta name="description" content="Transaction Monitoring Dashboard with real-time statistics, anomaly rates, and recent transaction audit records.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet & AI Agent Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ai-agent.css">
+</head>
+<body>
+
+  <!-- Background Glow & Grid Decoration -->
+  <div class="bg-decoration">
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-grid-pattern"></div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container" aria-label="Main Navigation">
+      <a href="index.html" class="brand-logo" id="nav-brand">
+        <div class="logo-icon-wrap">
+          <svg class="shield-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Bank Anomaly Flagger</span>
+          <span class="brand-badge">B.Tech Project</span>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="check-transaction.html" class="nav-link">Check Transaction</a></li>
+          <li><a href="dashboard.html" class="nav-link active">Dashboard</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="check-transaction.html" class="btn btn-primary nav-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Check Transaction</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-header-section">
+      <div class="container">
+        <div class="section-pill">System Overview</div>
+        <h1 class="page-title">Transaction Monitoring Dashboard</h1>
+        <p class="page-subtitle">
+          Real-time transaction volume telemetry, multi-factor anomaly flag distributions, and compliance audit queues.
+        </p>
+      </div>
+    </section>
+
+    <section class="dashboard-section">
+      <div class="container">
+        
+        <!-- Statistics KPI Cards (4 Required Cards) -->
+        <div class="stats-grid">
+          
+          <!-- Card 1: Total Transactions -->
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">Total Transactions</span>
+              <div class="stat-icon-wrap icon-blue">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                  <line x1="2" y1="10" x2="22" y2="10"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-value">500</div>
+            <div class="stat-footer">
+              <span class="stat-trend trend-neutral">Aggregated Activity</span>
+              <span class="stat-meta">Demo batch volume</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Normal Transactions -->
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">Normal Transactions</span>
+              <div class="stat-icon-wrap icon-green">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-value text-safe">460</div>
+            <div class="stat-footer">
+              <span class="stat-trend trend-positive">92.0% Safe Rate</span>
+              <span class="stat-meta">Passed all tiers</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Flagged Transactions -->
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">Flagged Transactions</span>
+              <div class="stat-icon-wrap icon-red">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                  <line x1="12" y1="9" x2="12" y2="13"></line>
+                  <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-value text-danger">40</div>
+            <div class="stat-footer">
+              <span class="stat-trend trend-negative">8.0% Flag Rate</span>
+              <span class="stat-meta">Triggered risk checks</span>
+            </div>
+          </div>
+
+          <!-- Card 4: Pending Review -->
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <span class="stat-label">Pending Review</span>
+              <div class="stat-icon-wrap icon-amber">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="stat-value text-amber">12</div>
+            <div class="stat-footer">
+              <span class="stat-trend trend-warning">High Priority</span>
+              <span class="stat-meta">In compliance queue</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Secondary Analytics Row -->
+        <div class="analytics-split-row">
+          
+          <!-- Flag Category Breakdown -->
+          <div class="card analytics-card">
+            <div class="analytics-card-header">
+              <h3 class="analytics-card-title">Flag Distribution by Detection Layer</h3>
+              <span class="analytics-badge">40 Anomalies</span>
+            </div>
+            <div class="flag-breakdown-list">
+              
+              <div class="breakdown-item">
+                <div class="breakdown-header">
+                  <span>DMGT Rule Violations (Amount / Velocity)</span>
+                  <span class="font-mono">18 (45%)</span>
+                </div>
+                <div class="breakdown-bar-bg">
+                  <div class="breakdown-bar-fill fill-blue" style="width: 45%;"></div>
+                </div>
+              </div>
+
+              <div class="breakdown-item">
+                <div class="breakdown-header">
+                  <span>Python Statistical Outliers (Z-Score &gt; 2.5σ)</span>
+                  <span class="font-mono">14 (35%)</span>
+                </div>
+                <div class="breakdown-bar-bg">
+                  <div class="breakdown-bar-fill fill-indigo" style="width: 35%;"></div>
+                </div>
+              </div>
+
+              <div class="breakdown-item">
+                <div class="breakdown-header">
+                  <span>ADSA Graph Linkage (New Payees / Mule Routes)</span>
+                  <span class="font-mono">8 (20%)</span>
+                </div>
+                <div class="breakdown-bar-bg">
+                  <div class="breakdown-bar-fill fill-cyan" style="width: 20%;"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Academic System Health Card -->
+          <div class="card analytics-card">
+            <div class="analytics-card-header">
+              <h3 class="analytics-card-title">Academic Architecture Status</h3>
+              <span class="live-tag"><span class="pulse-green"></span> All Online</span>
+            </div>
+            <div class="engine-status-list">
+              <div class="engine-item">
+                <span class="status-indicator-dot dot-online"></span>
+                <div class="engine-info">
+                  <strong>Java OOP Domain Engine</strong>
+                  <span>Transaction entities &amp; baseline models</span>
+                </div>
+                <span class="badge-tag-safe">Ready</span>
+              </div>
+              <div class="engine-item">
+                <span class="status-indicator-dot dot-online"></span>
+                <div class="engine-info">
+                  <strong>Python Statistical Core</strong>
+                  <span>Z-Score computation &amp; variance matrix</span>
+                </div>
+                <span class="badge-tag-safe">Ready</span>
+              </div>
+              <div class="engine-item">
+                <span class="status-indicator-dot dot-online"></span>
+                <div class="engine-info">
+                  <strong>ADSA Relational Graph</strong>
+                  <span>Account adjacency matrix &amp; network traversal</span>
+                </div>
+                <span class="badge-tag-safe">Ready</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Recent Transactions Table Card -->
+        <div class="card table-container-card">
+          <div class="table-card-header">
+            <div>
+              <h2 class="table-card-title">Recent Transactions</h2>
+              <p class="table-card-desc">Audit log showing recent screening evaluations and decision flags.</p>
+            </div>
+            <div class="table-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="NORMAL">Normal Only</button>
+              <button class="filter-btn" data-filter="FLAGGED">Flagged Only</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table" id="transactions-table">
+              <thead>
+                <tr>
+                  <th>Transaction ID</th>
+                  <th>Account</th>
+                  <th>Amount</th>
+                  <th>Payee</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Row 1 (NORMAL) -->
+                <tr data-status="NORMAL">
+                  <td class="font-mono font-bold">TXN-1001</td>
+                  <td class="font-mono text-muted">ACC-101</td>
+                  <td class="font-mono font-bold">₹1,200</td>
+                  <td class="font-mono">P-201</td>
+                  <td>
+                    <span class="status-pill status-normal">NORMAL</span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-outline table-action-btn" data-txn="TXN-1001">View Details</button>
+                  </td>
+                </tr>
+
+                <!-- Row 2 (FLAGGED) -->
+                <tr data-status="FLAGGED" class="row-highlight-flagged">
+                  <td class="font-mono font-bold text-danger">TXN-1002</td>
+                  <td class="font-mono text-muted">ACC-102</td>
+                  <td class="font-mono font-bold text-danger">₹75,000</td>
+                  <td class="font-mono text-danger">P-999</td>
+                  <td>
+                    <span class="status-pill status-flag">FLAGGED</span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-primary table-action-btn" data-txn="TXN-1002">Review Risk</button>
+                  </td>
+                </tr>
+
+                <!-- Row 3 (NORMAL) -->
+                <tr data-status="NORMAL">
+                  <td class="font-mono font-bold">TXN-1003</td>
+                  <td class="font-mono text-muted">ACC-103</td>
+                  <td class="font-mono font-bold">₹850</td>
+                  <td class="font-mono">P-203</td>
+                  <td>
+                    <span class="status-pill status-normal">NORMAL</span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-outline table-action-btn" data-txn="TXN-1003">View Details</button>
+                  </td>
+                </tr>
+
+                <!-- Row 4 (FLAGGED) -->
+                <tr data-status="FLAGGED" class="row-highlight-flagged">
+                  <td class="font-mono font-bold text-danger">TXN-1004</td>
+                  <td class="font-mono text-muted">ACC-104</td>
+                  <td class="font-mono font-bold text-danger">₹52,000</td>
+                  <td class="font-mono text-danger">P-888</td>
+                  <td>
+                    <span class="status-pill status-flag">FLAGGED</span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-primary table-action-btn" data-txn="TXN-1004">Review Risk</button>
+                  </td>
+                </tr>
+
+                <!-- Additional realistic demonstration rows -->
+                <tr data-status="NORMAL">
+                  <td class="font-mono font-bold">TXN-1005</td>
+                  <td class="font-mono text-muted">ACC-105</td>
+                  <td class="font-mono font-bold">₹3,400</td>
+                  <td class="font-mono">P-204</td>
+                  <td>
+                    <span class="status-pill status-normal">NORMAL</span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-outline table-action-btn" data-txn="TXN-1005">View Details</button>
+                  </td>
+                </tr>
+
+                <tr data-status="FLAGGED" class="row-highlight-flagged">
+                  <td class="font-mono font-bold text-danger">TXN-1006</td>
+                  <td class="font-mono text-muted">ACC-106</td>
+                  <td class="font-mono font-bold text-danger">₹98,000</td>
+                  <td class="font-mono text-danger">P-912</td>
+                  <td>
+                    <span class="status-pill status-flag">FLAGGED</span>
+                  </td>
+                  <td>
+                    <button class="btn btn-sm btn-primary table-action-btn" data-txn="TXN-1006">Review Risk</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="table-footer-info">
+            <span>Displaying 6 of 500 simulated transaction records</span>
+            <span class="text-muted">Demo values for college project preview</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <span class="footer-brand-title">Bank Transaction Anomaly Flagger</span>
+          </div>
+          <p class="footer-desc">
+            An intelligent first-pass transaction screening system combining discrete mathematical logic, graph network analysis, and statistical anomaly detection.
+          </p>
+          <div class="footer-badge-project">
+            <span>Academic Project | B.Tech</span>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="check-transaction.html">Check Transaction</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-info-group">
+          <h4 class="footer-heading">Academic Pillars</h4>
+          <ul class="footer-links">
+            <li><span class="footer-subitem">1. DMGT Propositional Rules</span></li>
+            <li><span class="footer-subitem">2. Python Z-Score Detection</span></li>
+            <li><span class="footer-subitem">3. ADSA Graph Relational Map</span></li>
+            <li><span class="footer-subitem">4. Java OOP Domain Engine</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; 2026 Bank Transaction Anomaly Flagger
+        </p>
+        <div class="footer-academic-meta">
+          <span>College B.Tech Project • Multi-Page Frontend</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="rules-engine.js"></script>
+  <script src="script.js"></script>
+  <script src="ai-agent.js"></script>
+</body>
+</html>

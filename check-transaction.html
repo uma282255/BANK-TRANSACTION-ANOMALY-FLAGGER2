@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bank Transaction Anomaly Flagger | Check Transaction</title>
+  <meta name="description" content="Submit transaction parameters to run multi-layer rule, relational graph, and statistical anomaly screening.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet & AI Agent Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="ai-agent.css">
+</head>
+<body>
+
+  <!-- Background Glow & Grid Decoration -->
+  <div class="bg-decoration">
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+    <div class="bg-grid-pattern"></div>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar-wrapper">
+    <nav class="navbar container" aria-label="Main Navigation">
+      <a href="index.html" class="brand-logo" id="nav-brand">
+        <div class="logo-icon-wrap">
+          <svg class="shield-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4" stroke-width="2.2"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Bank Anomaly Flagger</span>
+          <span class="brand-badge">B.Tech Project</span>
+        </div>
+      </a>
+
+      <button class="mobile-toggle" id="mobile-toggle-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-menu" id="nav-menu">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="check-transaction.html" class="nav-link active">Check Transaction</a></li>
+          <li><a href="dashboard.html" class="nav-link">Dashboard</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="check-transaction.html" class="btn btn-primary nav-btn">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <span>Check Transaction</span>
+          </a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <section class="page-header-section">
+      <div class="container">
+        <div class="section-pill">Transaction Screening</div>
+        <h1 class="page-title">Check a Transaction</h1>
+        <p class="page-subtitle">
+          Input transaction parameters below to evaluate rule constraints, relational graph linkages, and statistical Z-score deviations.
+        </p>
+      </div>
+    </section>
+
+    <section class="form-section">
+      <div class="container">
+        <div class="form-layout-grid">
+          
+          <!-- Transaction Form Card -->
+          <div class="card form-card">
+            <div class="form-card-header">
+              <div class="form-header-icon">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+              </div>
+              <div>
+                <h2 class="form-card-title">Transaction Parameters</h2>
+                <p class="form-card-desc">Enter transaction details to execute multi-tier verification screening.</p>
+              </div>
+              <button type="button" class="btn btn-sm btn-outline btn-prefill" id="btn-prefill-sample">
+                ⚡ Load High-Risk Sample
+              </button>
+            </div>
+
+            <form id="check-transaction-form" class="transaction-form" novalidate>
+              <div class="form-grid">
+                
+                <!-- Account ID -->
+                <div class="form-group">
+                  <label for="accountId" class="form-label">
+                    <span>Account ID</span>
+                    <span class="required">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <rect x="2" y="4" width="20" height="16" rx="2"></rect>
+                      <line x1="2" y1="10" x2="22" y2="10"></line>
+                    </svg>
+                    <input type="text" id="accountId" name="accountId" class="form-input" placeholder="e.g. ACC-1001" required value="ACC-1001">
+                  </div>
+                </div>
+
+                <!-- Transaction ID -->
+                <div class="form-group">
+                  <label for="transactionId" class="form-label">
+                    <span>Transaction ID</span>
+                    <span class="required">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                    <input type="text" id="transactionId" name="transactionId" class="form-input" placeholder="e.g. TXN-1025" required value="TXN-1025">
+                  </div>
+                </div>
+
+                <!-- Transaction Amount -->
+                <div class="form-group">
+                  <label for="transactionAmount" class="form-label">
+                    <span>Transaction Amount (₹)</span>
+                    <span class="required">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <span class="currency-symbol">₹</span>
+                    <input type="number" id="transactionAmount" name="transactionAmount" class="form-input" placeholder="e.g. 75000" min="1" step="any" required value="75000">
+                  </div>
+                </div>
+
+                <!-- Payee ID -->
+                <div class="form-group">
+                  <label for="payeeId" class="form-label">
+                    <span>Payee ID</span>
+                    <span class="required">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <input type="text" id="payeeId" name="payeeId" class="form-input" placeholder="e.g. PAYEE-9942" required value="PAYEE-9942">
+                  </div>
+                </div>
+
+                <!-- New Payee (Yes / No) -->
+                <div class="form-group">
+                  <label class="form-label">
+                    <span>New Payee?</span>
+                    <span class="required">*</span>
+                  </label>
+                  <div class="radio-group-box">
+                    <label class="radio-label">
+                      <input type="radio" name="newPayee" value="Yes" checked>
+                      <span class="radio-custom"></span>
+                      <span>Yes (First time transfer)</span>
+                    </label>
+                    <label class="radio-label">
+                      <input type="radio" name="newPayee" value="No">
+                      <span class="radio-custom"></span>
+                      <span>No (Existing beneficiary)</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Transaction Type -->
+                <div class="form-group">
+                  <label for="transactionType" class="form-label">
+                    <span>Transaction Type</span>
+                    <span class="required">*</span>
+                  </label>
+                  <div class="input-wrapper select-wrapper">
+                    <select id="transactionType" name="transactionType" class="form-input form-select" required>
+                      <option value="IMPS Transfer" selected>IMPS Transfer (Instant)</option>
+                      <option value="NEFT Transfer">NEFT Transfer</option>
+                      <option value="RTGS Transfer">RTGS Transfer (High Value)</option>
+                      <option value="UPI Payment">UPI Payment</option>
+                      <option value="ATM Withdrawal">ATM Withdrawal</option>
+                      <option value="Card Payment">Card Payment / POS</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Location -->
+                <div class="form-group">
+                  <label for="location" class="form-label">
+                    <span>Location</span>
+                    <span class="required">*</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <input type="text" id="location" name="location" class="form-input" placeholder="e.g. Mumbai, IN" required value="Mumbai, IN">
+                  </div>
+                </div>
+
+                <!-- Previous Transaction Amounts -->
+                <div class="form-group full-width">
+                  <label for="prevAmounts" class="form-label">
+                    <span>Previous Transaction Amounts (Historical Baseline)</span>
+                    <span class="help-text-label">Comma separated historical transfer values</span>
+                  </label>
+                  <div class="input-wrapper">
+                    <svg class="input-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                    </svg>
+                    <input type="text" id="prevAmounts" name="prevAmounts" class="form-input font-mono" placeholder="e.g. 1200, 1500, 2100, 1800, 2400" value="1200, 1500, 2100, 1800, 2400">
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Form Buttons -->
+              <div class="form-actions">
+                <button type="submit" class="btn btn-primary btn-lg" id="btn-submit-analyze">
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <span>Analyze Transaction</span>
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg" id="btn-safe-sample">
+                  <span>Load Safe Sample</span>
+                </button>
+                <button type="button" class="btn btn-secondary btn-lg" id="btn-ai-audit-helper" onclick="document.getElementById('sentinel-fab')?.click()">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <path d="M9 12l2 2 4-4"/>
+                  </svg>
+                  <span>Ask AI Copilot</span>
+                </button>
+                <button type="button" class="btn btn-outline btn-lg" id="btn-reset-form">
+                  <span>Reset Form</span>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Side Information Panel -->
+          <div class="form-side-panel">
+            <div class="card info-side-card">
+              <h3 class="side-card-title">Screening Evaluation Pipeline</h3>
+              <p class="side-card-desc">When submitted, this transaction is sequentially evaluated through 3 core engines:</p>
+              
+              <ul class="screening-pipeline-list">
+                <li class="pipeline-item">
+                  <div class="pipeline-num">1</div>
+                  <div>
+                    <strong>DMGT Rule Check (Active)</strong>
+                    <p>Evaluates propositional logic: <code>(P ∧ Q) ∨ (P ∧ R) ∨ S</code>.</p>
+                  </div>
+                </li>
+                <li class="pipeline-item">
+                  <div class="pipeline-num">2</div>
+                  <div>
+                    <strong>ADSA Graph Topology</strong>
+                    <p>Maps payee history and checks for circular money routes or mule accounts.</p>
+                  </div>
+                </li>
+                <li class="pipeline-item">
+                  <div class="pipeline-num">3</div>
+                  <div>
+                    <strong>Python Z-Score Core</strong>
+                    <p>Computes standard deviation from historical baseline to detect statistical outliers.</p>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="side-notice-box">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="12" y1="16" x2="12" y2="12"></line>
+                  <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <span>Phase 2 Engine Active: Deterministic DMGT Propositional Logic Engine is now evaluating live inputs!</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Result Container (Dynamically rendered with live DMGT evaluation) -->
+        <div id="demo-result-container" class="demo-result-wrapper" style="display: none;">
+          <div class="card result-card" id="result-card-main">
+            
+            <!-- Result Header Banner -->
+            <div class="result-header">
+              <div class="result-status-badge" id="result-status-badge">
+                <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" id="result-status-icon">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <span id="result-status-text">⚠ FLAGGED FOR REVIEW</span>
+              </div>
+              <span class="stage-tag" id="result-priority-tag">DMGT Logic Engine Evaluated</span>
+            </div>
+            
+            <div class="result-body">
+              <p class="result-lead" id="result-summary-text">
+                The transaction parameters were evaluated using the discrete propositional logic engine.
+              </p>
+
+              <!-- DMGT Propositional Logic Deduction Panel -->
+              <div class="dmgt-panel">
+                <div class="dmgt-panel-header">
+                  <div class="dmgt-title-wrap">
+                    <span class="dmgt-badge">DMGT Module</span>
+                    <h3 class="dmgt-title">Propositional Truth Table &amp; Deduction</h3>
+                  </div>
+                  <div class="dmgt-formula-box">
+                    <span class="formula-label">Composite Logic Formula:</span>
+                    <code class="formula-code">(P ∧ Q) ∨ (P ∧ R) ∨ S</code>
+                  </div>
+                </div>
+
+                <!-- Atomic Propositions Truth Grid -->
+                <div class="propositions-grid" id="dmgt-propositions-grid">
+                  <!-- Dynamically populated from JS -->
+                </div>
+
+                <!-- Logic Rules Evaluation List -->
+                <div class="dmgt-rules-breakdown" id="dmgt-rules-breakdown">
+                  <!-- Dynamically populated from JS -->
+                </div>
+              </div>
+
+              <!-- Captured Parameters Preview -->
+              <div class="result-payload-preview">
+                <div class="payload-header">Captured Transaction Parameters:</div>
+                <div class="payload-grid" id="result-payload-grid">
+                  <!-- Dynamically populated from JS -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M9 12l2 2 4-4"/>
+            </svg>
+            <span class="footer-brand-title">Bank Transaction Anomaly Flagger</span>
+          </div>
+          <p class="footer-desc">
+            An intelligent first-pass transaction screening system combining discrete mathematical logic, graph network analysis, and statistical anomaly detection.
+          </p>
+          <div class="footer-badge-project">
+            <span>Academic Project | B.Tech</span>
+          </div>
+        </div>
+
+        <div class="footer-links-group">
+          <h4 class="footer-heading">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="check-transaction.html">Check Transaction</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-info-group">
+          <h4 class="footer-heading">Academic Pillars</h4>
+          <ul class="footer-links">
+            <li><span class="footer-subitem">1. DMGT Propositional Rules</span></li>
+            <li><span class="footer-subitem">2. Python Z-Score Detection</span></li>
+            <li><span class="footer-subitem">3. ADSA Graph Relational Map</span></li>
+            <li><span class="footer-subitem">4. Java OOP Domain Engine</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright-text">
+          &copy; 2026 Bank Transaction Anomaly Flagger
+        </p>
+        <div class="footer-academic-meta">
+          <span>College B.Tech Project • Multi-Page Frontend</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Notification Toast Container -->
+  <div class="toast-container" id="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Modules -->
+  <script src="rules-engine.js"></script>
+  <script src="script.js"></script>
+  <script src="ai-agent.js"></script>
+</body>
+</html>
